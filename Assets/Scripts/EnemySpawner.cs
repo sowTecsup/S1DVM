@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        
+        GetComponent<SphereCollider>().radius = range;
     }
     void Update()
     {
@@ -27,11 +27,7 @@ public class EnemySpawner : MonoBehaviour
 
                 Vector3 dir = new Vector3(Random.Range(-1f,1f) ,0, Random.Range(-1f, 1f)).normalized;
 
-
-
                 Vector3 FinalPosition = origin + dir * Random.Range(0, range);
-
-
 
                 obj.transform.position = FinalPosition;
 
@@ -56,5 +52,11 @@ public class EnemySpawner : MonoBehaviour
             EnableSpawner = false;
             print("Player Exit");
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.aliceBlue;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }
