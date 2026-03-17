@@ -55,7 +55,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        GameObject obj = Instantiate(EnemyPrefab, transform);
+        GameObject obj = Instantiate(EnemyPrefab);
 
 
         Vector3 origin = transform.position;
